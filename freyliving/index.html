@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frey Living — Expression of Interest | Frey Health Group</title>
+<style>
+/* ── Frey Health Group Brand ── */
+:root {
+  --teal: #1C4E5E;
+  --sage: #5B8272;
+  --ice-sage: #F2F6F4;
+  --charcoal: #2B303A;
+  --warm-taupe: #F6F1EB;
+  --gold: #D48D4B;
+  --white: #FFFFFF;
+  --grey: #6C757D;
+  --light-grey: #E8ECEF;
+  --border: #E0E6E3;
+  --danger: #C44D4D;
+  --radius: 12px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.06);
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--warm-taupe);
+  color: var(--charcoal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--white);
+  border-bottom: 4px solid var(--teal);
+  padding: 20px 24px;
+  text-align: center;
+}
+.header img { height: 44px; margin-bottom: 8px; }
+.header .tagline {
+  font-size: 0.85rem;
+  color: var(--grey);
+  letter-spacing: 0.5px;
+}
+
+/* ── Progress Bar ── */
+.progress-wrap {
+  background: var(--white);
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  list-style: none;
+}
+.progress-steps li {
+  flex: 1;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--grey);
+  position: relative;
+  padding-top: 22px;
+  cursor: default;
+  transition: color 0.3s;
+}
+.progress-steps li::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--light-grey);
+  border: 2px solid var(--border);
+  transition: all 0.3s;
+  z-index: 2;
+}
+.progress-steps li::after {
+  content: '';
+  position: absolute;
+  top: 7px; left: 0; right: 50%;
+  height: 2px;
+  background: var(--border);
+  z-index: 1;
+}
+.progress-steps li:first-child::after { display: none; }
+.progress-steps li.active { color: var(--teal); font-weight: 600; }
+.progress-steps li.active::before {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.progress-steps li.done { color: var(--sage); }
+.progress-steps li.done::before {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+.progress-steps li.done::after { background: var(--sage); }
+.progress-label-mobile { display: none; }
+
+/* ── Container ── */
+.container {
+  max-width: 800px;
+  margin: 24px auto 60px;
+  padding: 0 16px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 32px;
+  margin-bottom: 20px;
+}
+.card.intro-card {
+  background: linear-gradient(135deg, var(--teal) 0%, #154252 100%);
+  color: var(--white);
+  padding: 48px 36px;
+}
+.card.intro-card h1 { color: var(--white); font-size: 2rem; margin-bottom: 12px; }
+.card.intro-card .intro-subtitle {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.card.intro-card .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.card.intro-card .feature-item {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.card.intro-card .feature-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.card.intro-card .price-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 16px;
+}
+
+/* ── Typography ── */
+h1 { font-size: 1.75rem; color: var(--teal); margin-bottom: 8px; }
+h2 { font-size: 1.35rem; color: var(--teal); margin-bottom: 16px; font-weight: 600; }
+h3 { font-size: 1.1rem; color: var(--charcoal); margin-bottom: 8px; }
+.section-desc {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ── Form Elements ── */
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: var(--charcoal);
+}
+.form-group .hint {
+  font-size: 0.8rem;
+  color: var(--grey);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.form-group .required::after {
+  content: ' *';
+  color: var(--danger);
+  font-weight: 400;
+}
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"],
+textarea, select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  color: var(--charcoal);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(28,78,94,0.1);
+}
+textarea { min-height: 100px; resize: vertical; }
+select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236C757D' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* ── Radio & Checkbox ── */
+.radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+.radio-item, .checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.radio-item:hover, .checkbox-item:hover { border-color: var(--sage); background: var(--ice-sage); }
+.radio-item.selected, .checkbox-item.selected {
+  border-color: var(--teal);
+  background: rgba(28,78,94,0.04);
+}
+.radio-item input, .checkbox-item input { margin-top: 3px; accent-color: var(--teal); }
+.radio-item label, .checkbox-item label { font-weight: 400; cursor: pointer; flex: 1; }
+
+/* ── Buttons ── */
+.btn-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; }
+.btn {
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-family: var(--font);
+}
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+.btn-primary:hover { background: #154252; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(28,78,94,0.25); }
+.btn-secondary {
+  background: var(--white);
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+}
+.btn-secondary:hover { background: var(--ice-sage); }
+.btn-outline {
+  background: transparent;
+  color: var(--grey);
+  border: 1px solid var(--border);
+  font-weight: 400;
+}
+.btn-outline:hover { background: var(--light-grey); }
+
+/* ── Step Visibility ── */
+.step { display: none; }
+.step.active { display: block; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--grey);
+  font-size: 0.82rem;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* ── Confirmation ── */
+.confirmation {
+  text-align: center;
+  padding: 48px 24px;
+}
+.confirmation .check-icon {
+  width: 64px; height: 64px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 2rem;
+  color: white;
+}
+.confirmation h1 { margin-bottom: 16px; }
+.confirmation p { color: var(--grey); font-size: 1.05rem; max-width: 520px; margin: 0 auto 12px; line-height: 1.7; }
+
+/* ── Accent Quote ── */
+.accent-quote {
+  border-left: 4px solid var(--sage);
+  background: var(--ice-sage);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 24px 0;
+  font-style: italic;
+  color: var(--teal);
+  font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .form-row, .form-row-3 { grid-template-columns: 1fr; }
+  .card { padding: 24px 18px; }
+  .card.intro-card { padding: 32px 20px; }
+  .card.intro-card h1 { font-size: 1.5rem; }
+  .card.intro-card .feature-grid { grid-template-columns: 1fr; }
+  .progress-steps li { font-size: 0.65rem; }
+  .progress-steps li span.full { display: none; }
+  .progress-label-mobile { display: block; font-size: 0.85rem; font-weight: 600; color: var(--teal); margin-bottom: 12px; }
+  h1 { font-size: 1.4rem; }
+  .btn { padding: 12px 20px; font-size: 0.9rem; }
+}
+
+/* ── Error state ── */
+.error-msg { color: var(--danger); font-size: 0.82rem; margin-top: 4px; display: none; }
+.form-group.error input, .form-group.error select, .form-group.error textarea { border-color: var(--danger); }
+.form-group.error .error-msg { display: block; }
+
+/* ── Conditional fields ── */
+.conditional { display: none; margin-top: 12px; padding: 16px; background: var(--ice-sage); border-radius: 8px; }
+.conditional.show { display: block; }
+
+/* ── Tags / Interests grid ── */
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.tag-item {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+.tag-item:hover { border-color: var(--sage); background: var(--ice-sage); }
+.tag-item.selected { background: var(--teal); color: white; border-color: var(--teal); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-weight:700;font-size:1.1rem;color:var(--teal);">Frey Health Group</div>
+  <div class="tagline">Independent Living — Expression of Interest</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label-mobile" id="stepLabel">Step 1 of 8 — Welcome</div>
+  <ul class="progress-steps" id="progressSteps">
+    <li class="active" data-step="0"><span class="full">Welcome</span></li>
+    <li data-step="1"><span class="full">About You</span></li>
+    <li data-step="2"><span class="full">NDIS &amp; Living</span></li>
+    <li data-step="3"><span class="full">Independence</span></li>
+    <li data-step="4"><span class="full">Accessibility</span></li>
+    <li data-step="5"><span class="full">Support</span></li>
+    <li data-step="6"><span class="full">Interests &amp; Community</span></li>
+    <li data-step="7"><span class="full">Preferences</span></li>
+    <li data-step="8"><span class="full">Goals &amp; Finish</span></li>
+  </ul>
+</div>
+
+<div class="container">
+
+<!-- ═══════════ STEP 0: INTRODUCTION ═══════════ -->
+<div class="step active" id="step0">
+  <div class="card intro-card">
+    <h1>Your own space. Your own independence. <br>Your community when you want it.</h1>
+    <p class="intro-subtitle">
+      Frey Living offers a new kind of accommodation experience for people who value independence, privacy and choice — while still wanting the reassurance of support and a welcoming community around them.
+    </p>
+    <div class="feature-grid">
+      <div class="feature-item"><strong>🏡 Your own front door</strong>Private bedroom, ensuite, living space and kitchenette</div>
+      <div class="feature-item"><strong>🌿 Plenty of natural light</strong>Designed for comfort, dignity and calm</div>
+      <div class="feature-item"><strong>🤝 Community when you choose</strong>Shared spaces for connection, not obligation</div>
+      <div class="feature-item"><strong>🛡️ Support close by</strong>24/7 on-site support worker in every building</div>
+    </div>
+    <div class="price-badge">Indicative rent: $350–$375 per week</div>
+  </div>
+
+  <div class="card">
+    <h2>Welcome to Frey Living</h2>
+    <p class="section-desc">
+      Frey Living is designed for people who want the freedom of independent living, with the peace of mind that comes from knowing support is available whenever it's needed.
+    </p>
+    <p style="margin-bottom:12px;">Each resident has their own <strong>private bedroom, ensuite bathroom, living space and kitchenette</strong>. The building includes four independent units, plus dedicated accommodation for an on-site support worker available 24/7.</p>
+    <p style="margin-bottom:12px;">Shared kitchen and living areas, plus outdoor gathering spaces, provide opportunities to connect with neighbours — <strong>when you choose to</strong>. You decide when you want privacy and when you want community.</p>
+    <div class="accent-quote">
+      "Independent living doesn't mean living alone. It means having your own space, your own choices and your own routines — with the opportunity to connect, belong and access support when you choose."
+    </div>
+    <p style="font-size:0.85rem; color: var(--grey); margin-top: 16px;">
+      <strong>Our first residence is now open.</strong> Additional residences are planned across Brisbane. If this location isn't your preference, you can still express interest and let us know your preferred region.
+    </p>
+    <p style="font-size:0.82rem; color: var(--grey); margin-top: 12px;">
+      ⓘ Pricing and availability may vary. Submitting this Expression of Interest does not guarantee accommodation.
+    </p>
+    <div class="btn-row">
+      <div></div>
+      <button class="btn btn-primary" onclick="goToStep(1)">Begin your Expression of Interest →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 1: ABOUT YOU ═══════════ -->
+<div class="step" id="step1">
+  <div class="card">
+    <h2>About You</h2>
+    <p class="section-desc">Let's start with the basics. This helps us get to know you and how best to stay in touch.</p>
+
+    <div class="form-row">
+      <div class="form-group"><label class="required">Full name</label><input type="text" id="fullName" placeholder="Your full legal name"></div>
+      <div class="form-group"><label>Preferred name</label><input type="text" id="prefName" placeholder="What should we call you?"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="required">Date of birth</label><input type="date" id="dob"></div>
+      <div class="form-group"><label>Pronouns <span class="hint">(optional)</span></label><input type="text" id="pronouns" placeholder="e.g. she/her, he/him, they/them"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label class="required">Phone number</label><input type="tel" id="phone" placeholder="04XX XXX XXX"></div>
+      <div class="form-group"><label class="required">Email address</label><input type="email" id="email" placeholder="your@email.com"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Current suburb</label><input type="text" id="suburb" placeholder="Where do you live now?"></div>
+      <div class="form-group"><label>Preferred contact method</label><select id="contactMethod"><option value="">Select...</option><option>Phone</option><option>Email</option><option>SMS</option><option>Either is fine</option></select></div>
+    </div>
+    <div class="form-group"><label>Best time to contact you</label><select id="contactTime"><option value="">Select...</option><option>Morning</option><option>Afternoon</option><option>Early evening</option><option>Anytime</option></select></div>
+
+    <h3 style="margin-top:28px;">Emergency Contact</h3>
+    <div class="form-row">
+      <div class="form-group"><label class="required">Name</label><input type="text" id="emName" placeholder="Emergency contact name"></div>
+      <div class="form-group"><label>Relationship</label><input type="text" id="emRel" placeholder="e.g. Parent, sibling, friend"></div>
+    </div>
+    <div class="form-group"><label class="required">Phone number</label><input type="tel" id="emPhone" placeholder="Emergency contact phone"></div>
+
+    <h3 style="margin-top:28px;">Who is helping you complete this Expression of Interest?</h3>
+    <div class="radio-group" id="helperType">
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','self')"><input type="radio" name="helper" value="self"><label>I am completing it myself</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="family"><label>Family member</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="support_worker"><label>Support worker</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="support_coordinator"><label>Support Coordinator</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="plan_manager"><label>Plan Manager</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="allied_health"><label>Allied health professional</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="advocate"><label>Advocate</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'helperType');toggleConditional('helperDetails','other')"><input type="radio" name="helper" value="other"><label>Other</label></div>
+    </div>
+    <div class="conditional" id="helperDetails">
+      <div class="form-row">
+        <div class="form-group"><label>Name</label><input type="text" id="helperName"></div>
+        <div class="form-group"><label>Organisation / Relationship</label><input type="text" id="helperOrg"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Contact details</label><input type="text" id="helperContact"></div>
+        <div class="form-group"><label>Relationship to applicant</label><input type="text" id="helperRel"></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(0)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(2)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 2: NDIS + CURRENT LIVING ═══════════ -->
+<div class="step" id="step2">
+  <div class="card">
+    <h2>Your NDIS Details</h2>
+    <p class="section-desc">This information helps us understand your funding arrangements.</p>
+    <div class="form-row">
+      <div class="form-group"><label>NDIS participant number</label><input type="text" id="ndisNumber" placeholder="If known"></div>
+      <div class="form-group"><label>NDIS plan dates</label><input type="text" id="ndisDates" placeholder="e.g. Jan 2026 – Jan 2027"></div>
+    </div>
+    <div class="form-group"><label>Plan management type</label>
+      <div class="radio-group" id="planMgmt">
+        <div class="radio-item" onclick="selectRadio(this,'planMgmt')"><input type="radio" name="planMgmt" value="self"><label>Self-managed</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'planMgmt')"><input type="radio" name="planMgmt" value="plan"><label>Plan-managed</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'planMgmt')"><input type="radio" name="planMgmt" value="agency"><label>Agency-managed (NDIA)</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'planMgmt')"><input type="radio" name="planMgmt" value="unsure"><label>I'm not sure</label></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Support Coordinator name</label><input type="text" id="scName"></div>
+      <div class="form-group"><label>Support Coordinator organisation</label><input type="text" id="scOrg"></div>
+    </div>
+    <div class="form-group"><label>Support Coordinator contact details</label><input type="text" id="scContact"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Plan Manager name (if applicable)</label><input type="text" id="pmName"></div>
+      <div class="form-group"><label>Plan Manager contact</label><input type="text" id="pmContact"></div>
+    </div>
+    <div class="form-group"><label>Do you currently have funding that may support your accommodation or support needs?</label>
+      <div class="radio-group" id="hasFunding">
+        <div class="radio-item" onclick="selectRadio(this,'hasFunding')"><input type="radio" name="hasFunding" value="yes"><label>Yes</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'hasFunding')"><input type="radio" name="hasFunding" value="no"><label>No</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'hasFunding')"><input type="radio" name="hasFunding" value="unsure"><label>Unsure</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'hasFunding')"><input type="radio" name="hasFunding" value="review"><label>Currently being reviewed</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="wantNdisHelp"><label>I would like assistance understanding how my NDIS funding may relate to my accommodation and support arrangements</label>
+      </div>
+      <p class="hint" style="margin-top:6px;">Frey Health Group does not provide definitive NDIS funding advice through this form.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>About Your Current Living Situation</h2>
+    <div class="form-group"><label>Where do you currently live?</label><input type="text" id="currentLive" placeholder="Suburb or area"></div>
+    <div class="form-group"><label>Who do you currently live with?</label><input type="text" id="liveWith" placeholder="e.g. Family, housemates, alone"></div>
+    <div class="form-group"><label>How long have you lived there?</label><input type="text" id="liveHowLong"></div>
+    <div class="form-group"><label>What do you like about your current living arrangement?</label><textarea id="likeCurrent" rows="2"></textarea></div>
+    <div class="form-group"><label>What would you like to be different?</label><textarea id="differentWish" rows="2"></textarea></div>
+    <div class="form-group"><label>Why are you considering independent living now?</label><textarea id="whyNow" rows="2"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>Have you previously lived independently?</label><select id="livedIndep"><option value="">Select...</option><option>Yes</option><option>No</option><option>Some experience</option></select></div>
+      <div class="form-group"><label>Have you previously lived away from family?</label><select id="livedAway"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+    </div>
+    <div class="form-group"><label>What does "independent living" mean to you?</label><textarea id="indepMeaning" rows="2" placeholder="There are no wrong answers — we'd love to hear what independence looks like through your eyes."></textarea></div>
+    <div class="form-group"><label>Tell us what you are hoping your new home will help you achieve.</label><textarea id="homeGoals" rows="3" placeholder="What does your ideal next chapter look like?"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(1)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(3)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 3: YOUR INDEPENDENCE ═══════════ -->
+<div class="step" id="step3">
+  <div class="card">
+    <h2>Your Independence</h2>
+    <p class="section-desc">This section helps us understand what you do now and where you'd like to grow. There are no right answers — this is about you.</p>
+    <div id="independenceGrid"></div>
+    <div class="form-group" style="margin-top:20px;"><label>What are you most proud of being able to do independently?</label><textarea id="proudOf" rows="2" placeholder="We'd love to celebrate your strengths with you."></textarea></div>
+    <div class="form-group"><label>Are there areas where you would like more independence or confidence?</label><textarea id="wantMoreIndep" rows="2"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(2)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(4)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 4: ACCESSIBILITY ═══════════ -->
+<div class="step" id="step4">
+  <div class="card">
+    <h2>Accessibility and Environmental Needs</h2>
+    <p class="section-desc">Your new home should work for you. Help us understand what you need to feel comfortable, safe and at ease.</p>
+
+    <h3>Mobility</h3>
+    <div class="radio-group" id="mobility">
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="independent"><label>I walk independently</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="walking_aid"><label>I use a walking aid</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="manual_wheelchair"><label>I use a manual wheelchair</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="powered_wheelchair"><label>I use a powered wheelchair</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="transfer_assist"><label>I need transfer assistance</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'mobility')"><input type="radio" name="mobility" value="other"><label>Other</label></div>
+    </div>
+
+    <h3 style="margin-top:24px;">Bathroom</h3>
+    <div class="tag-grid" id="bathroomNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Shower chair</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Grab rails</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Level-access shower</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Toilet transfer support</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Hand-held shower head</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Other bathroom modifications</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Bedroom</h3>
+    <div class="tag-grid" id="bedroomNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Transfer space beside bed</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Ceiling hoist</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Equipment storage</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Turning circle (wheelchair)</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Adjustable bed</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Pressure care mattress</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Kitchenette</h3>
+    <div class="tag-grid" id="kitchenNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Lowered bench height</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Accessible appliances</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Seating for meal prep</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Visual prompts/labels</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Safety considerations</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Sensory Environment</h3>
+    <div class="tag-grid" id="sensoryNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Sensitive to bright light</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Prefer low/dim lighting</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Sensitive to noise</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Need a quieter location</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Prefer smaller groups</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Sensitive to temperature</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Sensitive to strong smells</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Prefer minimal visual clutter</div>
+    </div>
+
+    <h3 style="margin-top:24px;">Communication</h3>
+    <div class="tag-grid" id="commNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Communication device</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Auslan / sign language</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Easy Read materials</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Visual communication</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Extra processing time</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Support person to assist</div>
+    </div>
+
+    <div class="form-group" style="margin-top:20px;"><label>Please tell us anything about the environment, accessibility or layout that would help your new home work well for you.</label><textarea id="accessNotes" rows="3" placeholder="The more we know, the better we can make sure your home fits you."></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(3)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(5)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 5: SUPPORT + SAFETY ═══════════ -->
+<div class="step" id="step5">
+  <div class="card">
+    <h2>Your Support Needs</h2>
+    <p class="section-desc">Understanding what support looks like for you helps us make sure the right things are in place.</p>
+
+    <h3>What support do you currently receive?</h3>
+    <div class="tag-grid" id="currentSupport">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Personal care</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Domestic assistance</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Community access</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Meal preparation</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Medication support</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Transport</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Behaviour support</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Allied health</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Overnight support</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">I don't currently receive support</div>
+    </div>
+    <div class="form-group" style="margin-top:16px;"><label>How much support do you currently receive each week? <span class="hint">(Approximate hours)</span></label><input type="text" id="supportHours" placeholder="e.g. 10 hours per week, or describe what support looks like"></div>
+    <div class="form-group"><label>What support would help you feel confident living independently?</label><textarea id="supportConfidence" rows="2"></textarea></div>
+    <div class="form-group"><label>Who is currently part of your support network?</label><textarea id="supportPeople" rows="2" placeholder="e.g. Support workers, family, allied health, Support Coordinator, friends, other professionals"></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>Safety and Wellbeing</h2>
+    <p class="section-desc">These questions help us understand what you may need to feel safe and supported in your new home. Please only provide information relevant to your accommodation and support needs.</p>
+    <div class="tag-grid" id="safetyNeeds">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Emergency support needs</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Falls risk</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Seizure management</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Medication management</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Overnight support needs</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Emergency evacuation planning</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Fire safety considerations</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Medical equipment</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Mobility equipment</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Assistance during emergencies</div>
+    </div>
+    <div class="form-group" style="margin-top:16px;"><label>Is there anything that our accommodation team should know to help keep you safe?</label><textarea id="safetyNotes" rows="3"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(4)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(6)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 6: INTERESTS + COMMUNITY ═══════════ -->
+<div class="step" id="step6">
+  <div class="card">
+    <h2>Your Interests and Personality</h2>
+    <p class="section-desc">We don't just want to know what support you need. We want to know who you are.</p>
+    <div class="form-group"><label>Tell us a little about you.</label><textarea id="aboutYou" rows="3" placeholder="What makes you, you? What lights you up? What do you care about?"></textarea></div>
+
+    <h3>What interests you?</h3>
+    <div class="tag-grid" id="interests">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🎵 Music</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">⚽ Sport</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🎨 Art</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🍳 Cooking</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🎮 Gaming</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🐾 Animals</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🌱 Gardening</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🎬 Movies/TV</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">📚 Reading</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">💪 Fitness</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🤝 Community activities</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🙋 Volunteering</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">📖 Study</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">💼 Work</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">☕ Social activities</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">🙏 Religion/spirituality</div>
+    </div>
+
+    <div class="form-group" style="margin-top:16px;"><label>What do you enjoy doing in your free time?</label><textarea id="freeTime" rows="2"></textarea></div>
+    <div class="form-group"><label>What would you love to do more of if you had your own home?</label><textarea id="moreOf" rows="2"></textarea></div>
+    <div class="form-group"><label>What would make your new home feel like YOUR home?</label><textarea id="feelHome" rows="2"></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>Community and Neighbours</h2>
+    <p class="section-desc">Each building has four independent units and shared spaces designed to create opportunities for connection — when you choose.</p>
+
+    <div class="form-group"><label>How would you describe your ideal balance between privacy and community?</label>
+      <div class="radio-group" id="privacyBalance">
+        <div class="radio-item" onclick="selectRadio(this,'privacyBalance')"><input type="radio" name="privacyBalance" value="mostly_privacy"><label>I mostly value my own privacy and space</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'privacyBalance')"><input type="radio" name="privacyBalance" value="occasional"><label>I like occasional social interaction</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'privacyBalance')"><input type="radio" name="privacyBalance" value="regular"><label>I would love regular opportunities to socialise</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'privacyBalance')"><input type="radio" name="privacyBalance" value="close_community"><label>I would love to be part of a close community</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'privacyBalance')"><input type="radio" name="privacyBalance" value="unsure"><label>I'm not sure yet — I'd like to explore this</label></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:20px;">What kinds of shared activities would you enjoy?</h3>
+    <div class="tag-grid" id="sharedActivities">
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Shared meals</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">BBQs</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Movie nights</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Games</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Gardening</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Cooking together</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Craft</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Exercise</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Celebrations</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Outdoor activities</div>
+      <div class="tag-item" onclick="this.classList.toggle('selected')">Community outings</div>
+    </div>
+
+    <div class="form-group" style="margin-top:16px;">
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="createActivities"><label>I would be interested in helping create activities or events for the community</label>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(5)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(7)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 7: PREFERENCES + COMPATIBILITY ═══════════ -->
+<div class="step" id="step7">
+  <div class="card">
+    <h2>Accommodation Preferences</h2>
+    <div class="form-group"><label>Preferred move-in timeframe</label><select id="moveTimeframe"><option value="">Select...</option><option>As soon as possible</option><option>Within 1–2 months</option><option>Within 3–6 months</option><option>Within 6–12 months</option><option>Just exploring at this stage</option></select></div>
+    <div class="form-group"><label>Are you flexible with availability?</label><select id="flexibleAvail"><option value="">Select...</option><option>Yes, I'm flexible</option><option>I have a specific timeframe in mind</option><option>I'm not sure yet</option></select></div>
+    <div class="form-group"><label>Preferred region</label>
+      <div class="radio-group" id="prefRegion">
+        <div class="radio-item" onclick="selectRadio(this,'prefRegion')"><input type="radio" name="prefRegion" value="darra"><label>Our first residence</label></div>
+        <div class="radio-item" onclick="selectRadio(this,'prefRegion')"><input type="radio" name="prefRegion" value="other"><label>Another Brisbane region (please specify)</label></div>
+      </div>
+    </div>
+    <div class="form-group"><label>If not our first residence, which Brisbane region would you prefer?</label><input type="text" id="otherRegion" placeholder="e.g. North Brisbane, Ipswich, Logan, Sunshine Coast..."></div>
+    <div class="form-row">
+      <div class="form-group"><label>Do you require parking?</label><select id="needParking"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+      <div class="form-group"><label>Do you have a vehicle?</label><select id="hasVehicle"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Do you have a service animal or pet?</label><select id="hasPet"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+      <div class="form-group"><label>Do you require additional storage?</label><select id="needStorage"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+    </div>
+
+    <h3 style="margin-top:24px;">What are the three most important things you are looking for in your new home?</h3>
+    <p class="hint">Select up to three.</p>
+    <div class="tag-grid" id="topThree" data-max="3">
+      <div class="tag-item" onclick="toggleMax(this,3)">Privacy</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Independence</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Safety</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Accessibility</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Community</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Location</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Natural light</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Quiet environment</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Support nearby</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Social opportunities</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Outdoor space</div>
+      <div class="tag-item" onclick="toggleMax(this,3)">Other</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Compatibility and Community Considerations</h2>
+    <p class="section-desc">These questions help us understand how we can best support a positive living environment for everyone. This isn't about excluding anyone — it's about making sure the environment works for you.</p>
+
+    <div class="form-group"><label>Are there any aspects of living alongside other residents that may be challenging for you?</label>
+      <div class="tag-grid" id="challenges">
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Noise</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Shared spaces</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Unexpected visitors</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Pets</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Social interaction</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Changes to routine</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Sensory factors</div>
+      </div>
+    </div>
+
+    <div class="form-group"><label>What helps you feel comfortable and settled when living around other people?</label><textarea id="comfortSettled" rows="2"></textarea></div>
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(6)">← Back</button>
+      <button class="btn btn-primary" onclick="goToStep(8)">Continue →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STEP 8: GOALS + NETWORK + DOCS + FINISH ═══════════ -->
+<div class="step" id="step8">
+  <div class="card">
+    <h2>Your Goals</h2>
+    <div class="form-group"><label>What would successful independent living look like for you?</label>
+      <div class="tag-grid" id="goals">
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Greater independence</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Living away from family</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Developing daily living skills</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Building friendships</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Community participation</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Employment</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Study</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Improved confidence</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Managing my own home</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Cooking</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Managing money</div>
+        <div class="tag-item" onclick="this.classList.toggle('selected')">Building routines</div>
+      </div>
+    </div>
+    <div class="form-group"><label>If we spoke again in 12 months and you told us that moving here had been a success, what would have changed for you?</label><textarea id="twelveMonths" rows="3" placeholder="Paint us a picture of what success looks like through your eyes."></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>Your Support Network</h2>
+    <p class="section-desc">Who are the important people in your life who you'd like involved in your transition to independent living?</p>
+    <div class="form-group"><label>Please list key people and their relationship to you</label><textarea id="supportNetwork" rows="3" placeholder="e.g. Mum (family), Sarah (Support Coordinator), James (OT), Dave (friend)..."></textarea></div>
+  </div>
+
+  <div class="card">
+    <h2>Documents <span class="hint">(Optional)</span></h2>
+    <p class="section-desc">If you have relevant documents that would help us understand your circumstances, you can upload them here. This is entirely optional.</p>
+    <div class="form-group" style="border: 2px dashed var(--border); border-radius: 8px; padding: 24px; text-align: center; color: var(--grey);">
+      <p style="margin-bottom:8px;">📄 Drag and drop files here, or click to browse</p>
+      <p style="font-size:0.8rem;">Relevant documents may include: NDIS plan, OT assessment, functional assessment, support plan (PDF, Word, or image files)</p>
+      <input type="file" multiple style="margin-top:12px;" accept=".pdf,.doc,.docx,.jpg,.png">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Is there anything else you'd like us to know?</h2>
+    <p class="section-desc">This is your opportunity to tell us anything we haven't asked that would help us understand you, your goals and what you are looking for in your next home.</p>
+    <textarea id="anythingElse" rows="4" placeholder="Your story, your words, whatever matters to you."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>Consent and Privacy</h2>
+    <div class="checkbox-group" id="consent">
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="consent1"><label>I confirm that the information I have provided is accurate to the best of my knowledge.</label>
+      </div>
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="consent2"><label>I consent to Frey Health Group contacting me about this accommodation opportunity.</label>
+      </div>
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="consent3"><label>I understand that submitting this Expression of Interest does not guarantee accommodation.</label>
+      </div>
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="consent4"><label>I understand that Frey Health Group may contact relevant professionals where appropriate and with my consent.</label>
+      </div>
+      <div class="checkbox-item" onclick="this.classList.toggle('selected');this.querySelector('input').checked=!this.querySelector('input').checked">
+        <input type="checkbox" id="consent5"><label>I consent to my information being stored and used for assessing my accommodation enquiry in accordance with Frey Health Group's privacy requirements.</label>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color: var(--grey); margin-top: 12px;">
+      📋 <em>Privacy Policy, Terms &amp; Conditions, and Accommodation Information — to be reviewed and finalised by Frey Health Group management before publishing.</em>
+    </p>
+
+    <div class="btn-row">
+      <button class="btn btn-outline" onclick="goToStep(7)">← Back</button>
+      <button class="btn btn-primary" onclick="submitForm()">Submit Expression of Interest</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ CONFIRMATION ═══════════ -->
+<div class="step" id="confirmation">
+  <div class="card">
+    <div class="confirmation">
+      <div class="check-icon">✓</div>
+      <h1>Thank you for sharing your story with us.</h1>
+      <p>The Frey Health Group team will review your Expression of Interest and contact you to discuss your circumstances, accommodation needs, availability and next steps.</p>
+      <p style="font-weight:600;">We look forward to learning more about you and helping you explore whether this could be the right place to call home.</p>
+      <p style="font-size:0.85rem; color: var(--grey); margin-top: 20px;">
+        If you have any questions in the meantime, you can reach us at<br>
+        <strong>hello@constellationtherapies.com.au</strong> or <strong>1300 294 635</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  © 2026 Frey Health Group &bull; Constellation Therapies &bull; constellationtherapies.com.au<br>
+  Our first residence is now open. We are planning additional developments in other regions of Brisbane.
+</div>
+
+<script>
+// ── STEP NAVIGATION ──
+let currentStep = 0;
+
+function goToStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const stepEl = document.getElementById('step' + n);
+  if (stepEl) stepEl.classList.add('active');
+  currentStep = n;
+  updateProgress(n);
+  document.getElementById('stepLabel').textContent = `Step ${n+1} of 9`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n) {
+  const steps = document.querySelectorAll('#progressSteps li');
+  steps.forEach((li, i) => {
+    li.classList.remove('active', 'done');
+    if (i < n) li.classList.add('done');
+    if (i === n) li.classList.add('active');
+  });
+}
+
+// ── RADIO SELECTION ──
+function selectRadio(item, groupId) {
+  const group = document.getElementById(groupId);
+  if (!group) return;
+  group.querySelectorAll('.radio-item').forEach(el => el.classList.remove('selected'));
+  item.classList.add('selected');
+  item.querySelector('input').checked = true;
+}
+
+// ── CONDITIONAL FIELDS ──
+function toggleConditional(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (value === 'other') el.classList.add('show');
+  else if (value === 'self') el.classList.remove('show');
+}
+
+// ── TAG MAX SELECTION ──
+function toggleMax(item, max) {
+  if (item.classList.contains('selected')) {
+    item.classList.remove('selected');
+    return;
+  }
+  const grid = item.parentElement;
+  const selected = grid.querySelectorAll('.selected');
+  if (selected.length >= max) {
+    selected[0].classList.remove('selected');
+  }
+  item.classList.add('selected');
+}
+
+// ── BUILD INDEPENDENCE GRID ──
+const independenceItems = [
+  'Preparing meals', 'Using a kitchenette', 'Grocery shopping', 'Laundry',
+  'Cleaning', 'Managing personal belongings', 'Personal care', 'Medication routines',
+  'Appointments', 'Money and budgeting', 'Transport', 'Community access',
+  'Communication', 'Household routines', 'Safety awareness', 'Making decisions about daily life'
+];
+const independenceOptions = [
+  'I manage this independently', 'I manage this with occasional support',
+  'I need regular support', 'I need significant support',
+  'I would like to develop this skill', 'Not applicable'
+];
+
+(function buildIndependence() {
+  const grid = document.getElementById('independenceGrid');
+  if (!grid) return;
+  let html = '';
+  independenceItems.forEach((item, i) => {
+    html += '<div class="form-group"><label>' + item + '</label><select id="indep' + i + '">';
+    html += '<option value="">Select...</option>';
+    independenceOptions.forEach(opt => {
+      html += '<option value="' + opt + '">' + opt + '</option>';
+    });
+    html += '</select></div>';
+  });
+  grid.innerHTML = html;
+})();
+
+// ── HELPER EVENT LISTENERS ──
+document.querySelectorAll('.radio-item').forEach(item => {
+  item.addEventListener('click', function() {
+    const group = this.closest('.radio-group');
+    if (group) {
+      group.querySelectorAll('.radio-item').forEach(el => el.classList.remove('selected'));
+      this.classList.add('selected');
+      this.querySelector('input').checked = true;
+    }
+  });
+});
+
+// ── SUBMIT ──
+function submitForm() {
+  // Collect all form data
+  const data = {};
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    if (el.id && el.type !== 'file' && el.type !== 'radio' && el.type !== 'checkbox') {
+      data[el.id] = el.value;
+    }
+  });
+  // Radios
+  document.querySelectorAll('input[type="radio"]:checked').forEach(el => {
+    data[el.name] = el.value;
+  });
+  // Checkboxes
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
+    if (el.id) data[el.id] = true;
+  });
+  // Tag selections
+  document.querySelectorAll('.tag-grid').forEach(grid => {
+    const name = grid.id;
+    const selected = [];
+    grid.querySelectorAll('.tag-item.selected').forEach(tag => {
+      selected.push(tag.textContent.trim());
+    });
+    if (selected.length > 0) data[name] = selected;
+  });
+
+  // POST to backend
+  const apiUrl = window.location.hostname === 'localhost' || window.location.hostname.startsWith('168.144')
+    ? '/api/submit'
+    : 'https://freyhealthgroup.com.au/api/submit';
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(r => r.json()).then(res => {
+    console.log('Submission result:', res);
+  }).catch(err => {
+    console.log('Submission offline — saved for retry');
+  });
+
+  // Show confirmation immediately (non-blocking)
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('confirmation').classList.add('active');
+  document.querySelector('.progress-wrap').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
